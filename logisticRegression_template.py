@@ -26,8 +26,8 @@ class logisticRegression(classifier.basic):
 		# モデルパラメータをランダムに初期化
 		xDim = x.shape[0]
 		tDim = t.shape[0]
-		self.W = np.random.normal(0.0, pow(xDim, -0.5), (xDim, tDim))
-		self.b = np.random.normal(0.0, pow(tDim, -0.5), (tDim, 1))
+		self.W = np.random.normal(0.0, pow(xDim+1, -0.5), (xDim+1, tDim))
+		#self.b = np.random.normal(0.0, pow(tDim, -0.5), (tDim, 1))
 	#------------------------------------
 
 	#------------------------------------
@@ -53,10 +53,11 @@ class logisticRegression(classifier.basic):
 		
 		# Wの更新
 		predict_minus_t = self.predict(x) - t
+		x = np.append(x, np.ones([1, dNum]), axis=0)
 		self.W -= alpha * np.matmul(x, predict_minus_t.T) # 【wの勾配の計算】
 		
 		# bの更新
-		self.b -= alpha * np.sum(predict_minus_t, axis=1, keepdims=True) # 【bの勾配の計算】	
+		#self.b -= alpha * np.sum(predict_minus_t, axis=1, keepdims=True) # 【bの勾配の計算】	
 
 		# 交差エントロピーとAccuracyを標準出力
 		if printEval:
@@ -82,6 +83,7 @@ class logisticRegression(classifier.basic):
 	# 5) 事後確率の計算
 	# x: 入力データ（入力ベクトルの次元数×データ数のnumpy.array）
 	def predict(self, x):
+		x = np.append(x, np.ones([1, x.shape[1]]), axis=0)
 		return self.softmax(np.matmul(self.W.T,x) + self.b)
 	#------------------------------------
 
@@ -154,5 +156,8 @@ if __name__ == "__main__":
 	# 7）学習した事後確率と学習データの描画
 	myData.plotClassifier(classifier,"train",prefix="posterior_after")
 	
+	# 8)損失と正解率のプロット
+	classifier.plotEval()
+	classifier.plotEval(type='accuracy')
 #メインの終わり
 #-------------------
