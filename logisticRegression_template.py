@@ -91,7 +91,7 @@ class logisticRegression(classifier.basic):
 #-------------------
 # メインの始まり
 if __name__ == "__main__":
-	os.makedirs('visualization')
+	os.makedirs('visualization', exist=True)
 	# 1）人工データの生成（簡単な場合）
 	if args.mode=="easy":
 		myData = data.artificial(300,150,mean1=[1,2],mean2=[-2,-1],mean3=[2,-2],cov=[[1,-0.8],[-0.8,1]])
