@@ -85,7 +85,7 @@ class logisticRegression(classifier.basic):
 		return self.softmax(np.matmul(self.W.T,x) + self.b)
 	#------------------------------------
 
-	def plotEva(self, type="loss", prefix="classifier"):
+	def plotEval(self, type="loss", prefix="classifier"):
 		#評価の種類による場合分け
 		if type=="loss":
 			legend = "cross-entropy loss"
