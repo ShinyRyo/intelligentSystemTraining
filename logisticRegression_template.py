@@ -4,7 +4,13 @@ import data
 import matplotlib.pylab as plt
 import classifier_template as classifier
 import pdb
+import os
+import argparse    # 1. argparseをインポート
 
+#コマンドラインにオプションを追加する
+parser = argparse.ArgumentParser()# 2. パーサを作る
+parser.add_argument('--mode')
+args = parser.parse_args()
 #-------------------
 # クラスの定義始まり
 class logisticRegression(classifier.basic):
@@ -85,11 +91,15 @@ class logisticRegression(classifier.basic):
 #-------------------
 # メインの始まり
 if __name__ == "__main__":
+	os.makedirs('visualization')
 	# 1）人工データの生成（簡単な場合）
-	myData = data.artificial(300,150,mean1=[1,2],mean2=[-2,-1],mean3=[2,-2],cov=[[1,-0.8],[-0.8,1]])
+	if args.mode=="easy":
+		myData = data.artificial(300,150,mean1=[1,2],mean2=[-2,-1],mean3=[2,-2],cov=[[1,-0.8],[-0.8,1]])
 
 	# 1) 人工データの生成（難しい場合）
-	#myData = data.artificial(300,150,mean1=[1,2],mean2=[-2,-1],mean3=[4,-2],mean3multi=[-2,4],cov=[[1,0],[0,1]])
+	if args.mode == "hard":
+		myData = data.artificial(300,150,mean1=[1,2],mean2=[-2,-1],mean3=[4,-2],mean3multi=[-2,4],cov=[[1,0],[0,1]])
+	print(args.mode+" mode")
 
 	# 2）ロジスティック回帰（2階層のニューラルネットワーク）モデルの作成
 	classifier = logisticRegression(myData.xTrain, myData.tTrain)
