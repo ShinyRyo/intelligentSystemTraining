@@ -84,7 +84,7 @@ class logisticRegression(classifier.basic):
 	# x: 入力データ（入力ベクトルの次元数×データ数のnumpy.array）
 	def predict(self, x):
 		x = np.append(x, np.ones([1, x.shape[1]]), axis=0)
-		return self.softmax(np.matmul(self.W.T,x) + self.b)
+		return self.softmax(np.matmul(self.W.T,x))# + self.b)
 	#------------------------------------
 
 	def plotEval(self, type="loss", prefix="classifier"):
