@@ -47,10 +47,10 @@ class logisticRegression(classifier.basic):
 		
 		# Wの更新
 		predict_minus_t = self.predict(x) - t
-		self.W -= alpha * 0 # 【wの勾配の計算】
+		self.W -= alpha * np.matmul(x, predict_minus_t.T) # 【wの勾配の計算】
 		
 		# bの更新
-		self.b -= alpha * 0 # 【bの勾配の計算】	
+		self.b -= alpha * np.sum(predict_minus_t, axis=1, keepdims=True) # 【bの勾配の計算】	
 
 		# 交差エントロピーとAccuracyを標準出力
 		if printEval:
@@ -68,7 +68,7 @@ class logisticRegression(classifier.basic):
 	# x: 入力データ（入力ベクトルの次元数×データ数のnumpy.array）
 	# t: one-hot学習カテゴリデータ（カテゴリ数×データ数のnumpy.array）
 	def loss(self, x,t):
-		crossEntropy =  0		#【交差エントロピーの計算】
+		crossEntropy =  -np.sum(t*np.log(self.predict(x)))		#【交差エントロピーの計算】
 		return crossEntropy
 	#------------------------------------
 
