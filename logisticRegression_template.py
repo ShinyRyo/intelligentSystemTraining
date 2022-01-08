@@ -92,7 +92,7 @@ class logisticRegression(classifier.basic):
 			ylabel = "loss"
 			postfix = "loss"
 			evalData = self.losses
-		elif type="accuracy":
+		elif type=="accuracy":
 			legend = "accuracy"
 			ylabel = "accuracy"
 			postfix = "accuracy"
