@@ -104,6 +104,8 @@ class neuralNetwork(lr.logisticRegression):
 #-------------------
 # メインの始まり
 if __name__ == "__main__":
+	import os
+	os.makedirs("visualization")
 	# 1) 人工データの生成（簡単な場合）
 	#myData = data.artificial(300,150,mean1=[1,2],mean2=[-2,-1],mean3=[2,-2],cov=[[1,-0.8],[-0.8,1]])
 	
