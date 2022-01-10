@@ -48,9 +48,18 @@ class neuralNetwork(lr.logisticRegression):
 		predict = self.predict(x,h)
 		predict_error =  predict - t
 		
-		# self.W1とW2の更新
-		#【self.W1の更新】
-		#【self.W2の更新】
+		# 入力層に値「1」のノードを追加
+		x_with_one = np.append(x, np.ones([1,x.shape[1]]),axis=0)
+		
+		# W1の更新
+		hidden_error = np.matmul(self.W2,predict_error)
+		self.W1 -= alpha * np.matmul(x_with_one,(hidden_error[:-1] * h * (1-h)).T)
+
+		# 中間層に値「1」のノードを追加
+		h_with_one = np.append(h, np.ones([1,h.shape[1]]),axis=0)
+
+		# W2の更新
+		self.W2 -= alpha * np.matmul(predict_error, h_with_one.T).T
 
 		# 交差エントロピーとAccuracyを標準出力
 		if printEval:
@@ -77,7 +86,7 @@ class neuralNetwork(lr.logisticRegression):
 	# 6) シグモイドの計算
 	# x: 入力データ（入力ベクトルの次元数×データ数のnumpy.array）
 	def sigmoid(self,x):
-		sigmoid = x		#【シグモイド関数の計算】
+		sigmoid = 1/(1+np.exp(-x))		#【シグモイド関数の計算】
 		return sigmoid
 	#------------------------------------
 
