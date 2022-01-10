@@ -28,3 +28,5 @@ def plotEval(hDims, evalNN, evalLR, xlabel):
     plt.savefig(fullpath)
 
     plt.close()
+
+#メインの始まり
