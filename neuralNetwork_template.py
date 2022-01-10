@@ -98,6 +98,34 @@ class neuralNetwork(lr.logisticRegression):
 		return h
 	#------------------------------------
 	
+	def plotEval(self, type="loss", prefix="classifier"):
+		#評価の種類による場合分け
+		if type=="loss":
+			legend = "cross-entropy loss"
+			ylabel = "loss"
+			postfix = "loss"
+			evalData = self.losses
+		elif type=="accuracy":
+			legend = "accuracy"
+			ylabel = "accuracy"
+			postfix = "accuracy"
+			evalData = self.accuracies
+
+		plt.plot(evalData, "o-", color="#0000FF", label=legend)
+
+		plt.legend(fontsize=14)
+
+		plt.xlabel("Iteration", fontsize=14)
+		plt.ylabel(ylabel, fontsize=14)
+
+		max = np.max(evalData)
+		plt.ylim(0, max+max*0.1)
+
+		import os
+		fullpath = os.path.join(self.visualPath, f"{prefix}_{postfix}.png")
+		plt.savefig(fullpath)
+
+		plt.close()	
 # クラスの定義終わり
 #-------------------
 
@@ -137,6 +165,9 @@ if __name__ == "__main__":
 	# 7) 学習した事後確率と学習データの描画
 	myData.plotClassifier(classifier,"train",prefix="posterior_NN_after")
 	myData.plotClassifier(classifier,"test",prefix="posterior_NN_after_test")
-	
+
+	# 8)損失と正解率のプロット
+	classifier.plotEval()
+	classifier.plotEval(type='accuracy')	
 #メインの終わり
 #-------------------
