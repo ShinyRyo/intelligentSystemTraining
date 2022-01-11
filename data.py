@@ -301,7 +301,7 @@ class sentimentalLabelledSentences:
 		self.nDict = len(self.wordNgramDict)
 		
 		# IDF (inverse document frequency)の計算
-		self.idf = np.log(self.nDict) - np.log(self.wordNgramDictCnt) + 1
+		self.idf = np.log(self.nData) - np.log(self.wordNgramDictCnt) + 1
 
 	#------------------------------------
 
