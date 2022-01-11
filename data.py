@@ -198,7 +198,7 @@ class artificial:
 #------------------------------------
 # sentimental labelled sentence用のクラス
 class sentimentalLabelledSentences:
-	dataPath = 'sentiment_labelled_sentences'  # データのフォルダ名
+	dataPath = 'intelligentSystemTraining/sentiment_labelled_sentences'  # データのフォルダ名
 	
 	#------------------------------------
 	# CSVファイルの読み込み
