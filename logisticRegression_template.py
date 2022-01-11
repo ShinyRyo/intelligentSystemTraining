@@ -75,7 +75,7 @@ class logisticRegression(classifier.basic):
 	# x: 入力データ（入力ベクトルの次元数×データ数のnumpy.array）
 	# t: one-hot学習カテゴリデータ（カテゴリ数×データ数のnumpy.array）
 	def loss(self, x,t):
-		crossEntropy =  -np.sum(t*np.log(self.predict(x)))		#【交差エントロピーの計算】
+		crossEntropy =  -np.sum(t*np.log(self.predict(x))+10e-300)		#【交差エントロピーの計算】
 		return crossEntropy
 	#------------------------------------
 
