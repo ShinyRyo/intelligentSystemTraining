@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     #1)データ生成
     #人工データの生成（難しい場合＋ノイズあり）
-    myData = data.artificial(300,500,mean1=[1,2],mean2=[-2,-1],mean3=[4,-2],mean3multi=[-2,4], cov=[[1.0],[0,1]],noiseMean=[1,-2])
+    myData = data.artificial(300,500,mean1=[1,2],mean2=[-2,-1],mean3=[4,-2],mean3multi=[-2,4], cov=[[1,0],[0,1]],noiseMean=[1,-2])
     batchSize = 0
     Nite = 1000
     learningRate = 0.01
