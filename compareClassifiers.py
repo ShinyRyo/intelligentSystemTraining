@@ -79,7 +79,7 @@ if __name__ == "__main__":
     accuracyNN = []
     for ind in np.arange(len(hDims)):
         accuracyNN.append(classifierNN[ind].accuracy(myData.xTest, myData.tTest))
-        print(f"Test accuracy NN{hDims[ind].accuracyNN[ind]}")
+        print(f"Test accuracy NN{hDims[ind]}",accuracyNN[ind])
     #ロジスティックモデルのAccuracyの標準出力
     accuracyLR = classifierLR.accuracy(myData.xTest. myData.tTest)
     print(f"Test loss LR:{accuracyLR}")
