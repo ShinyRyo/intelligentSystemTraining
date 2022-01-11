@@ -81,7 +81,7 @@ if __name__ == "__main__":
         accuracyNN.append(classifierNN[ind].accuracy(myData.xTest, myData.tTest))
         print(f"Test accuracy NN{hDims[ind]}",accuracyNN[ind])
     #ロジスティックモデルのAccuracyの標準出力
-    accuracyLR = classifierLR.accuracy(myData.xTest. myData.tTest)
+    accuracyLR = classifierLR.accuracy(myData.xTest, myData.tTest)
     print(f"Test loss LR:{accuracyLR}")
 
     #Accuracyのプロット
