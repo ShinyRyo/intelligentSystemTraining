@@ -42,7 +42,7 @@ if __name__ == "__main__":
     #2) 隠れ層のノード数の異なるニューラルネットワークモデルの作成
     classifierNN = []
     hDims = [1,5,10,50,100,200,300,500,800]
-    for ind in np.array(len(hDims)):
+    for ind in np.arange(len(hDims)):
         classifierNN.append(nn.neuralNetwork(myData.xTrain, myData.tTrain, hDims[ind], batchSize=batchSize))
     #3) ロジスティックモデルの作成
     classifierLR = lr.logisticRegression(myData.xTrain, myData.tTrain, batchSize=batchSize)
