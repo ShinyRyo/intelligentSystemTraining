@@ -25,7 +25,7 @@ def plotEval(hDims, evalNN, evalLR, xlabel):
     plt.ylim(0, max+max*0.1)
     #ファイルに保存
     visuralPath="visualization"
-    fullpath = os.path.join(visualPth,f"NN_LR_{xlabel}.png")
+    fullpath = os.path.join(visualPath,f"NN_LR_{xlabel}.png")
     plt.savefig(fullpath)
 
     plt.close()
