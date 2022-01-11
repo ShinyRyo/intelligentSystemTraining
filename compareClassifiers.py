@@ -68,7 +68,7 @@ if __name__ == "__main__":
     lossNN = []
     for ind in np.arange(len(hDims)):
         lossNN.append(classifierNN[ind].loss(myData.xTest, myData.tTest))
-        print(f"Test loss NN{hDims[ind].lossNN[ind]")
+        print(f"Test loss NN{hDims[ind].lossNN[ind]}")
     #ロジスティックモデルの交差エントロピー損失の標準出力
     lossLR = classifierLR.loss(myData.xTest, myData.tTest)
     print(f"Test loss LR:{lossLR}")
