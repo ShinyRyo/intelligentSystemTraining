@@ -78,8 +78,8 @@ if __name__ == "__main__":
     #ニューラルネットワークのAccuracyの標準出力
     accuracyNN = []
     for ind in np.arange(len(hDims)):
-        accuracyNN.append(classifierNN[ind], accuracy(myData.xTest, myData.tTest))
-        print(f"Test accuracy NN{hDims[ind], accuracyNN[ind]}")
+        accuracyNN.append(classifierNN[ind].accuracy(myData.xTest, myData.tTest))
+        print(f"Test accuracy NN{hDims[ind].accuracyNN[ind]}")
     #ロジスティックモデルのAccuracyの標準出力
     accuracyLR = classifierLR.accuracy(myData.xTest. myData.tTest)
     print(f"Test loss LR:{accuracyLR}")
