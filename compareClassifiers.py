@@ -6,6 +6,7 @@ import pandas as pd
 import pickle
 from datetime import datetime
 import os
+import matplotlib.pyplot as plt
 #import pdb
 
 visualPath = "visualization"
