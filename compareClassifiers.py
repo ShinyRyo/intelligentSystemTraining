@@ -19,7 +19,7 @@ def plotEval(hDims, evalNN, evalLR, xlabel):
     plt.legend(["Neural Network", "Logistic Regression"], fontsize=14)
     #各軸のラベル
     plt.xlabel("Number of hidden nodes", fontsize=14)
-    plt.ylable(xlabel, fontsize=14)
+    plt.ylabel(xlabel, fontsize=14)
     #表示範囲の設定
     max = np.max([np.max(evalNN), evalLR])
     plt.ylim(0, max+max*0.1)
