@@ -149,7 +149,7 @@ if __name__ == "__main__":
 	# trainRatio: 学習データ数の割合（スカラー）
 	# isRandom: データをランダムにシャッフルするか否か
 	myData.createData(gramNum=1, trainRatio=0.8, isRandom=True)
-	
+	print(myData)
 	# 2) 3階層のニューラルネットワークモデルの作成
 	classifier = neuralNetwork(myData.xTrain, myData.tTrain,hDim=100, batchSize=500)
 
