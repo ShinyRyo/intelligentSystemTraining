@@ -150,6 +150,7 @@ if __name__ == "__main__":
 	# isRandom: データをランダムにシャッフルするか否か
 	myData.createData(gramNum=1, trainRatio=0.8, isRandom=True)
 	print(myData.xTrain)
+	print(len(myData.xTrain))
 	# 2) 3階層のニューラルネットワークモデルの作成
 	classifier = neuralNetwork(myData.xTrain, myData.tTrain,hDim=100, batchSize=500)
 
